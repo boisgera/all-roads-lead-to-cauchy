@@ -277,6 +277,128 @@ class="math inline">\(\int_\mu\)</span> is the letter used for the
 integration variable. It also labels the U-shaped path in the
 diagram.</li>
 </ul>
+<h1 id="the-cauchy-goursat-theorem-for-triangles">The Cauchy-Goursat
+theorem for triangles</h1>
+<p>This is the classic proof of “LC TRIANG”, by repeated subdivision of
+the triangle. It only uses the complex differentiability of <span
+class="math inline">\(f\)</span>, and never assumes that <span
+class="math inline">\(f&#39;\)</span> is continuous.</p>
+<p><strong>Notation.</strong> The closed triangle with vertices <span
+class="math inline">\(a, b, c \in \mathbb{C}\)</span> is <span
+class="math inline">\(T = \operatorname{conv}\{a, b, c\}\)</span>. Its
+boundary <span class="math inline">\(\partial T\)</span> is the closed
+path that follows the segments <span
+class="math inline">\([a,b]\)</span>, <span
+class="math inline">\([b,c]\)</span> and <span
+class="math inline">\([c,a]\)</span>, so that</p>
+<p><span class="math display">\[\int_{\partial T} f(z)\,dz =
+\int_{[a,b]} f(z)\,dz + \int_{[b,c]} f(z)\,dz + \int_{[c,a]}
+f(z)\,dz.\]</span></p>
+<p>We denote by <span class="math inline">\(d\)</span> the diameter of
+<span class="math inline">\(T\)</span> and by <span
+class="math inline">\(L\)</span> the length of <span
+class="math inline">\(\partial T\)</span>.</p>
+<p><strong>Theorem.</strong> Let <span class="math inline">\(U \subset
+\mathbb{C}\)</span> be open and let <span class="math inline">\(f : U
+\to \mathbb{C}\)</span> be complex-differentiable at every point of
+<span class="math inline">\(U\)</span>. If <span class="math inline">\(T
+\subset U\)</span> is a closed triangle, then</p>
+<p><span class="math display">\[\int_{\partial T} f(z)\,dz =
+0.\]</span></p>
+<p>Since <span class="math inline">\(f\)</span> is differentiable, it is
+continuous, so all the integrals in this proof are well defined.</p>
+<h2 id="step-1-subdivide-the-triangle">Step 1: subdivide the
+triangle</h2>
+<p>Let <span class="math inline">\(c&#39; = \frac{a+b}{2}\)</span>,
+<span class="math inline">\(a&#39; = \frac{b+c}{2}\)</span> and <span
+class="math inline">\(b&#39; = \frac{c+a}{2}\)</span> be the midpoints
+of the sides. They split <span class="math inline">\(T\)</span> into
+four triangles, with the following orientations:</p>
+<p><span class="math display">\[T^1 = (a, c&#39;, b&#39;), \quad T^2 =
+(c&#39;, b, a&#39;), \quad T^3 = (a&#39;, c, b&#39;), \quad T^4 =
+(a&#39;, b&#39;, c&#39;).\]</span></p>
+<p>Add the four boundary integrals. The inner segments are each
+traversed twice, in opposite directions:</p>
+<ul>
+<li><span class="math inline">\([c&#39;, b&#39;]\)</span> in <span
+class="math inline">\(T^1\)</span> and <span
+class="math inline">\([b&#39;, c&#39;]\)</span> in <span
+class="math inline">\(T^4\)</span>,</li>
+<li><span class="math inline">\([a&#39;, c&#39;]\)</span> in <span
+class="math inline">\(T^2\)</span> and <span
+class="math inline">\([c&#39;, a&#39;]\)</span> in <span
+class="math inline">\(T^4\)</span>,</li>
+<li><span class="math inline">\([b&#39;, a&#39;]\)</span> in <span
+class="math inline">\(T^3\)</span> and <span
+class="math inline">\([a&#39;, b&#39;]\)</span> in <span
+class="math inline">\(T^4\)</span>.</li>
+</ul>
+<p>Their contributions cancel. The remaining pieces make up the three
+sides of <span class="math inline">\(T\)</span>, hence</p>
+<p><span class="math display">\[\int_{\partial T} f(z)\,dz =
+\sum_{j=1}^{4} \int_{\partial T^j} f(z)\,dz.\]</span></p>
+<p>Each <span class="math inline">\(T^j\)</span> is contained in <span
+class="math inline">\(T\)</span> by convexity. Each <span
+class="math inline">\(T^j\)</span> is also the image of <span
+class="math inline">\(T\)</span> by a similarity of ratio <span
+class="math inline">\(\frac{1}{2}\)</span>, so its diameter is <span
+class="math inline">\(\frac{d}{2}\)</span> and its perimeter is <span
+class="math inline">\(\frac{L}{2}\)</span>.</p>
+<h2 id="step-2-keep-the-worst-piece">Step 2: keep the worst piece</h2>
+<p>Let <span class="math inline">\(I = \left| \int_{\partial T} f(z)\,dz
+\right|\)</span>. By the triangle inequality, at least one of the four
+triangles <span class="math inline">\(T^j\)</span> satisfies</p>
+<p><span class="math display">\[\left| \int_{\partial T^j} f(z)\,dz
+\right| \geq \frac{I}{4}.\]</span></p>
+<p>Set <span class="math inline">\(T_0 = T\)</span> and repeat the
+construction. This gives a decreasing sequence of closed triangles <span
+class="math inline">\(T_0 \supset T_1 \supset T_2 \supset
+\cdots\)</span> such that, for every <span
+class="math inline">\(n\)</span>,</p>
+<p><span class="math display">\[\left| \int_{\partial T_n} f(z)\,dz
+\right| \geq \frac{I}{4^n}, \qquad \operatorname{diam} T_n =
+\frac{d}{2^n}, \qquad \operatorname{length} \partial T_n =
+\frac{L}{2^n}.\]</span></p>
+<h2 id="step-3-find-the-limit-point">Step 3: find the limit point</h2>
+<p>The <span class="math inline">\(T_n\)</span> are nonempty, compact
+and nested, so their intersection contains a point <span
+class="math inline">\(z_0\)</span>. In particular <span
+class="math inline">\(z_0 \in T \subset U\)</span>.</p>
+<h2 id="step-4-use-differentiability-at-the-limit-point">Step 4: use
+differentiability at the limit point</h2>
+<p>Let <span class="math inline">\(\varepsilon &gt; 0\)</span>. Since
+<span class="math inline">\(f\)</span> is differentiable at <span
+class="math inline">\(z_0\)</span>, there is an <span
+class="math inline">\(r &gt; 0\)</span> such that <span
+class="math inline">\(D(z_0, r) \subset U\)</span> and</p>
+<p><span class="math display">\[|z - z_0| &lt; r \;\Rightarrow\; \left|
+f(z) - f(z_0) - f&#39;(z_0)(z - z_0) \right| \leq \varepsilon\,|z -
+z_0|.\]</span></p>
+<p>The affine function <span class="math inline">\(g(z) = f(z_0) +
+f&#39;(z_0)(z - z_0)\)</span> has a primitive, so its integral over any
+closed path is zero. Pick <span class="math inline">\(n\)</span> large
+enough that <span class="math inline">\(\frac{d}{2^n} &lt; r\)</span>.
+Since <span class="math inline">\(z_0 \in T_n\)</span>, we have <span
+class="math inline">\(T_n \subset D(z_0, r)\)</span> and <span
+class="math inline">\(|z - z_0| \leq \frac{d}{2^n}\)</span> on <span
+class="math inline">\(\partial T_n\)</span>. Therefore</p>
+<p><span class="math display">\[\left| \int_{\partial T_n} f(z)\,dz
+\right| = \left| \int_{\partial T_n} \left( f(z) - g(z) \right) dz
+\right| \leq \frac{L}{2^n} \times \varepsilon\,\frac{d}{2^n} =
+\frac{\varepsilon\,L\,d}{4^n}.\]</span></p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Comparing with the lower bound of Step 2 gives</p>
+<p><span class="math display">\[\frac{I}{4^n} \leq
+\frac{\varepsilon\,L\,d}{4^n}, \quad \text{that is} \quad I \leq
+\varepsilon\,L\,d.\]</span></p>
+<p>This holds for every <span class="math inline">\(\varepsilon &gt;
+0\)</span>, so <span class="math inline">\(I = 0\)</span>. <span
+class="math inline">\(\blacksquare\)</span></p>
+<p>The factors match exactly: each subdivision divides the integral by
+at most <span class="math inline">\(4\)</span>, while the estimate gains
+a factor <span class="math inline">\(2\)</span> from the length and a
+factor <span class="math inline">\(2\)</span> from the size of the error
+term.</p>
 <h1 id="how-the-divergence-theorem-would-help">How the divergence
 theorem would help</h1>
 <p><em>Transcript of the handwritten note
