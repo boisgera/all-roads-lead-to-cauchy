@@ -8,6 +8,7 @@ pandoc \
   --from markdown \
   --to html5 \
   --standalone \
+  --toc \
   --mathjax \
   --output build/index.html \
   all-roads-lead-to-cauchy.md
