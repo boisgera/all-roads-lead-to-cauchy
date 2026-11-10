@@ -31,7 +31,7 @@ $$\int_\Omega \operatorname{div}\vec\Phi\,d\sigma = \int_{\partial\Omega} \vec\P
 The GP belongs to the family of the generalized Riemann integrals; cf
 
 > Formalizing the Divergence Theorem and the
-> Cauchy Integral Formula in Lean
+> Cauchy Integral Formula in Lean\
 > Yury Kudryashov
 
 for the exact statement.
