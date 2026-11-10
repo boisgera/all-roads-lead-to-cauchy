@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>All roads lead to Cauchy</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <script defer=""
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">All roads lead to Cauchy</h1>
+</header>
+<h1 id="versions-of-local-cauchy">3+1 versions of local Cauchy</h1>
+<p><em>Transcript of the handwritten note
+<code>3+1-versions-of-local-cauchy.tldr</code> /
+<code>3+1-versions-of-local-cauchy.svg</code>. Descriptions of drawings
+are in square brackets.</em></p>
+<h2 id="local-cauchy">LOCAL CAUCHY</h2>
+<ul>
+<li>LC RECT <span class="math inline">\(\Rightarrow\)</span> <span
+class="math inline">\(\exists\)</span> PRIM. (EXPLICIT CONSTR.)</li>
+<li>LC TRIANG <span class="math inline">\(\Rightarrow\)</span> LC RECT
+(SPLIT THE QUAD)</li>
+<li>LC TRIANG <span class="math inline">\(\Rightarrow\)</span> LC
+CIRC.</li>
+<li><span class="math inline">\(\exists\)</span> PRIM <span
+class="math inline">\(\Rightarrow\)</span> EVERYTHING</li>
+</ul>
+<p><em>[Diagram: “<span class="math inline">\(\exists\)</span> LOC.
+PRIM” at the top, joined by a pair of double arrows (one in each
+direction) to each of three contours on the row below: a rectangle, a
+triangle and a circle, each with an orientation arrow. On that row:
+rectangle (<span class="math inline">\(\Leftarrow\)</span>) triangle
+(<span class="math inline">\(\Rightarrow\)</span>) circle.]</em></p>
+<ul>
+<li><p><span class="math inline">\(\exists\)</span> LOC PRIM <span
+class="math inline">\(\Rightarrow\)</span> <span
+class="math inline">\(\exists\)</span> <span class="math inline">\(\int
+= 0\)</span> LOC <span class="math inline">\(\forall\)</span> CLOSED
+PATH <span class="math inline">\(\gamma\)</span></p>
+<p><span class="math inline">\(f \to F&#39; = f\)</span>.</p>
+<p><span class="math display">\[\int_\gamma f(z)\,dz = [F]_\gamma =
+F(\gamma(1)) - F(\gamma(0)) = 0\]</span></p></li>
+<li><p>LOC <span class="math inline">\(\int = 0\)</span> for
+<em>[rectangle contour]</em> <span
+class="math inline">\(\Rightarrow\)</span> <span
+class="math inline">\(\exists\)</span> PRIM LOC.</p>
+<p>DEFINE</p>
+<p><span class="math display">\[F(z) = \int_{\gamma_z}
+f(\mu)\,d\mu\]</span></p>
+<p>where</p>
+<p><em>[Diagram: the path <span class="math inline">\(\gamma_z\)</span>
+goes from <span class="math inline">\(z_0\)</span> horizontally to the
+right, then vertically up to <span
+class="math inline">\(z\)</span>.]</em></p>
+<p><span class="math inline">\(F(z+h) - F(z)\)</span>:</p>
+<p><em>[Diagram: from <span class="math inline">\(z_0\)</span>, the path
+<span class="math inline">\(\gamma_z\)</span> goes right, then up to
+<span class="math inline">\(z\)</span>. The path <span
+class="math inline">\(\gamma_{z+h}\)</span> continues further right
+along the same horizontal, then up to <span class="math inline">\(z +
+h\)</span>.]</em></p>
+<p><span class="math display">\[\int_{\gamma_{z+h}} f(\mu)\,d\mu -
+\int_{\gamma_z} f(\mu)\,d\mu = \int_{\mu} f(\mu)\,d\mu\]</span></p>
+<p><em>[Diagram: a path labelled <span
+class="math inline">\(\mu\)</span> from <span
+class="math inline">\(z\)</span> down, then right, then up to <span
+class="math inline">\(z + h\)</span>.]</em></p>
+<p><span class="math display">\[= \int_{\lambda_{z,h}}
+f(\mu)\,d\mu\]</span></p>
+<p><em>[Diagram: the path <span
+class="math inline">\(\lambda_{z,h}\)</span> from <span
+class="math inline">\(z\)</span> up, then right to <span
+class="math inline">\(z + h\)</span>.]</em></p>
+<p><em>[In the next two equations, the divisions by <span
+class="math inline">\(h\)</span> are added in blue.]</em></p>
+<p><span class="math display">\[\frac{F(z+h) - F(z) - f(z) \times h}{h}
+= \int_{\lambda_{z,h}} \frac{f(\mu)}{h}\,d\mu - \frac{f(z)}{h} \times
+\int_{\lambda_{z,h}} 1\,d\mu\]</span></p>
+<p><span class="math display">\[= \int_{\lambda_{z,h}} \frac{f(\mu) -
+f(z)}{h}\,d\mu\]</span></p>
+<p><span class="math display">\[\ell(\lambda_{z,h}) \leq
+2|h|\]</span></p>
+<p><span class="math display">\[\left| \frac{F(z+h) - F(z)}{h} - f(z)
+\right| \leq 2|h| \max_{\mu \in \lambda_{z,h}([0,1])} \left|
+\frac{f(\mu) - f(z)}{h} \right|\]</span></p>
+<p><span class="math display">\[\leq 2 \max_{\mu \in
+\lambda_{z,h}([0,1])} |f(\mu) - f(z)|\]</span></p>
+<p><span class="math display">\[\xrightarrow[h \to 0]{} 0\]</span></p>
+<p><span class="math inline">\(\Rightarrow\)</span> <span
+class="math inline">\(F\)</span> is a prim of <span
+class="math inline">\(f\)</span>.</p></li>
+<li><p><em>[circle contour]</em> <span
+class="math inline">\(\Rightarrow\)</span> <span
+class="math inline">\(\exists\)</span> PRIM. LOCALE: PROVE THE <span
+class="math inline">\(\exists\)</span> OF A LOCAL POWER SERIES
+EXPANSION, THEN SUM THE PRIMITIVE OF EACH TERM.</p></li>
+</ul>
+<hr />
+<h2 id="transcribers-notes">Transcriber’s notes</h2>
+<ul>
+<li>Corrected here, still present in the handwritten original: the
+maximum was taken over <span
+class="math inline">\(\gamma_{z,h}([0,1])\)</span>, while the path is
+named <span class="math inline">\(\lambda_{z,h}\)</span> just before. It
+now reads <span
+class="math inline">\(\lambda_{z,h}([0,1])\)</span>.</li>
+<li>Kept as written: the subscript of <span
+class="math inline">\(\int_\mu\)</span> is the letter used for the
+integration variable. It also labels the U-shaped path in the
+diagram.</li>
+</ul>
+<h1 id="how-the-divergence-theorem-would-help">How the divergence
+theorem would help</h1>
+<p><em>Transcript of the handwritten note
+<code>How the divergence theorem would help.tldr</code> /
+<code>How the divergence theorem would help.svg</code>. Descriptions of
+drawings are in square brackets.</em></p>
+<p>In physics, you often have a vector field that “transfers some
+quantity” around the space.</p>
+<p>For example, if <span class="math inline">\(\vec v\)</span> is the
+velocity field of a fluid and <span class="math inline">\(\rho\)</span>
+the scalar field of mass density, <span class="math inline">\(\vec\Phi
+:= \rho\vec v\)</span> is the vector field that tells you how mass moves
+in time.</p>
+<p>Let’s assume that we work in <span
+class="math inline">\(\mathbb{R}^n\)</span> with <span
+class="math inline">\(n = 2\)</span>.</p>
+<p>The divergence “theorem” tells you that</p>
+<ul>
+<li>if <span class="math inline">\(\Omega\)</span> is a set with “smooth
+enough” boundary and <span class="math inline">\(\vec n\)</span> is its
+unit outer normal vector.</li>
+<li>if <span class="math inline">\(\vec\Phi : U \subset \mathbb{R}^2 \to
+\mathbb{R}^2\)</span> is “smooth enough” and <span
+class="math inline">\(\Omega \subset U\)</span></li>
+</ul>
+<p>With <span class="math inline">\(\operatorname{div}\vec\Phi :=
+\displaystyle\sum_{i=1}^{2} \frac{\partial\Phi_i}{\partial x_i}\)</span>
+(also denoted <span
+class="math inline">\(\vec\nabla\cdot\vec\Phi\)</span>),</p>
+<p>we have</p>
+<p><span class="math display">\[\int_\Omega
+\operatorname{div}\vec\Phi\,d\sigma = \int_{\partial\Omega}
+(\vec\Phi\cdot\vec n)\,d\ell\]</span></p>
+<p>where <span class="math inline">\(\sigma\)</span> is the measure of
+surface in <span class="math inline">\(\mathbb{R}^2\)</span> and <span
+class="math inline">\(\ell\)</span> the measure of length on <span
+class="math inline">\(\partial\Omega\)</span>.</p>
+<p>The r.h.s. can be interpreted as the flow of <span
+class="math inline">\(\vec\Phi\)</span> going out of <span
+class="math inline">\(\Omega\)</span> per unit of time (<span
+class="math inline">\(&gt; 0\)</span> for outgoing, <span
+class="math inline">\(&lt; 0\)</span> for incoming).</p>
+<hr />
+<p>What we can prove easily with proper assumptions to the divergence
+theorem is a rectangular case:</p>
+<ul>
+<li>if <span class="math inline">\(U \subset \mathbb{R}^2\)</span> is
+open and <span class="math inline">\(\Omega = \,]a,b[\,\times\,]c,d[\,
+\subset U\)</span></li>
+<li>if <span class="math inline">\(\vec\Phi : U \to
+\mathbb{R}^2\)</span> is integrable and differentiable on <span
+class="math inline">\(U\)</span> and <span
+class="math inline">\(\dfrac{\partial\Phi_x}{\partial x}\)</span> and
+<span class="math inline">\(\dfrac{\partial\Phi_y}{\partial y}\)</span>
+are integrable on <span class="math inline">\(U\)</span></li>
+</ul>
+<p>then</p>
+<p><span class="math display">\[\int_\Omega
+\operatorname{div}\vec\Phi\,d\sigma = \int_{\partial\Omega}
+(\vec\Phi\cdot\vec n)\,d\ell\]</span></p>
+<p>holds.</p>
+<p>PROOF: By Fubini’s theorem: <span
+class="math inline">\(\displaystyle\int_\Omega
+\operatorname{div}\vec\Phi\,d\sigma = \dots\)</span></p>
+<p><span class="math display">\[\int_{]a,b[\times]c,d[} \left(
+\frac{\partial\Phi_x}{\partial x}(x,y) + \frac{\partial\Phi_y}{\partial
+y}(x,y) \right) dx\,dy\]</span></p>
+<p><span class="math display">\[= \int_{]c,d[} \left[ \int_{]a,b[}
+\frac{\partial\Phi_x}{\partial x}(x,y)\,dx \right] dy + \int_{]a,b[}
+\left[ \int_{]c,d[} \frac{\partial\Phi_y}{\partial y}(x,y)\,dy \right]
+dx\]</span></p>
+<p><em>[Green annotations: the first inner integrand is marked
+“INTEGRABLE FOR A.E <span class="math inline">\(y\)</span>”, the second
+“INTEGRABLE FOR A.E. <span class="math inline">\(x\)</span>”.]</em></p>
+<p><span class="math display">\[= \int_{]c,d[} \left( \Phi_x(b,y) -
+\Phi_x(a,y) \right) dy + \int_{]a,b[} \left( \Phi_y(x,d) - \Phi_y(x,c)
+\right) dx\]</span></p>
+<p><em>[Diagram: the rectangle <span
+class="math inline">\(\Omega\)</span> with corners <span
+class="math inline">\((a,c)\)</span> at the bottom left and <span
+class="math inline">\((b,d)\)</span> at the top right. Outward normals
+in blue: <span class="math inline">\(\vec n = (0,1)\)</span> on top,
+<span class="math inline">\(\vec n = (1,0)\)</span> on the right, <span
+class="math inline">\(\vec n = (-1,0)\)</span> on the left, and <span
+class="math inline">\(\vec n = (0,-1)\)</span> on the bottom.]</em></p>
+<p><span class="math display">\[\dots = \int_{\partial\Omega}
+\vec\Phi\cdot\vec n\,d\ell\]</span></p>
+<p>NOTE: the rectangular case of the divergence theorem is the 2dim (or
+<span class="math inline">\(n\)</span>-dim.) generalisation of:</p>
+<p><span class="math inline">\(f : I \to \mathbb{R}\)</span> integrable,
+<span class="math inline">\(]a,b[\, \subset I\)</span>, <span
+class="math inline">\(f&#39;\)</span> exist and integrable <span
+class="math inline">\(\Rightarrow\)</span></p>
+<p><span class="math display">\[\int_{]a,b[} f&#39;(x)\,dx = f(b) -
+f(a)\]</span></p>
+<hr />
+<p>Let’s assume for a moment that the rectangular version of the
+divergence theorem works WITHOUT THE ASSUMPTION <span
+class="math inline">\(\dfrac{\partial\Phi_x}{\partial x}\)</span> and
+<span class="math inline">\(\dfrac{\partial\Phi_y}{\partial y}\)</span>
+are integrable on <span class="math inline">\(U\)</span> <em>[this
+assumption is written in orange]</em></p>
+<p>Why should we care?</p>
+<p>Let <span class="math inline">\(f : U \subset \mathbb{C} \to
+\mathbb{C}\)</span> be complex-diff and <span
+class="math inline">\(\Omega := \,]a,b[\,\times\,]c,d[\, \subset
+U\)</span>. Let <span class="math inline">\(\gamma\)</span> be the
+associated (counter-clockwise) closed path</p>
+<p>Let <span class="math inline">\(f(x + iy) = u(x,y) + iv(x,y)\)</span>
+and set <span class="math inline">\(\vec\Phi = (u, -v)\)</span>.</p>
+<p>The Cauchy-Riemann equations yield</p>
+<p><span class="math display">\[\operatorname{div}\vec\Phi =
+\frac{\partial u}{\partial x} - \frac{\partial v}{\partial y} =
+0.\]</span></p>
+<p>Thus,</p>
+<p><span class="math display">\[\int_{]a,b[\times]c,d[}
+\operatorname{div}\vec\Phi\,d\sigma = 0 = \int_{\partial\Omega}
+\vec\Phi\cdot\vec n\,d\ell\]</span></p>
+<p><span class="math display">\[= \int_c^d u(b,t)\,dt + \int_a^b
+(-v(t,d))\,dt\]</span></p>
+<p><span class="math display">\[+ \int_c^d -u(a,t)\,dt + \int_a^b
+-(-v(t,c))\,dt\]</span></p>
+<p>Picking <span class="math inline">\(\vec\Phi = (v, u)\)</span> also
+yields <span class="math inline">\(\operatorname{div}\vec\Phi =
+\dfrac{\partial v}{\partial x} + \dfrac{\partial u}{\partial y} =
+0\)</span></p>
+<p>and thus,</p>
+<p><span class="math display">\[0 = \int_c^d v(b,t)\,dt + \int_a^b
+(u(t,d))\,dt\]</span></p>
+<p><span class="math display">\[+ \int_c^d (-v(a,t))\,dt + \int_a^b
+(-u(t,c))\,dt\]</span></p>
+<p>OTOH, we have:</p>
+<p><span class="math display">\[\int_\gamma f(z)\,dz = \int_c^d
+(u+iv)(b,t)\,i\,dt + \int_a^b (u+iv)(t,d)\,(-dt)\]</span></p>
+<p><span class="math display">\[+ \int_c^d (u+iv)(a,t)\,(-i\,dt) +
+\int_a^b (u+iv)(t,c)\,dt\]</span></p>
+<p><span class="math display">\[= \left[ \int_c^d -v(b,t)\,dt - \int_a^b
+u(t,d)\,dt + \int_c^d v(a,t)\,dt + \int_a^b u(t,c)\,dt
+\right]\]</span></p>
+<p><span class="math display">\[+ i \left[ \int_c^d u(b,t)\,dt -
+\int_a^b v(t,d)\,dt - \int_c^d u(a,t)\,dt + \int_a^b v(t,c)\,dt
+\right]\]</span></p>
+<p>and we know that both integrals are <span
+class="math inline">\(0\)</span>!</p>
+<p>THUS, THE DIV THEOREM WITH “WEAK HYPOTHESES” WOULD UNLOCK RECTANGULAR
+CAUCHY!</p>
+<hr />
+<h2 id="transcribers-notes-1">Transcriber’s notes</h2>
+<ul>
+<li>Corrected here, still present in the handwritten original: in the
+rectangle diagram, the bottom normal was labelled <span
+class="math inline">\(\vec n = (0,1)\)</span>. Since it points downward,
+it now reads <span class="math inline">\((0,-1)\)</span>.</li>
+<li>“with proper assumptions”: the word “proper” is hard to read and is
+my best guess.</li>
+</ul>
+<h1 id="the-divergence-theorem">The divergence theorem</h1>
+<p><em>Transcript of the handwritten note
+<code>The divergence theorem.tldr</code> /
+<code>The divergence theorem.svg</code>. Descriptions of drawings are in
+square brackets.</em></p>
+<p>What we can prove ourselves:</p>
+<p><em>[Diagram: a blob-shaped open set <span
+class="math inline">\(U\)</span> containing a rectangle <span
+class="math inline">\(\Omega\)</span>.]</em></p>
+<p><span class="math inline">\(\vec\Phi : U \to \mathbb{R}^2\)</span>
+diff. <span class="math inline">\(\dfrac{\partial\Phi_x}{\partial
+x}\)</span> and <span
+class="math inline">\(\dfrac{\partial\Phi_y}{\partial y}\)</span>
+integrable</p>
+<p><span class="math display">\[\Rightarrow \int_\Omega
+\operatorname{div}\vec\Phi\,d\sigma = \int_{\partial\Omega}
+\vec\Phi\cdot\vec n\,d\ell\]</span></p>
+<p>What actually holds:</p>
+<p><span class="math inline">\(\vec\Phi : U \to \mathbb{R}^2\)</span>
+diff. <span class="math inline">\(\operatorname{div}\vec\Phi\)</span>
+integrable</p>
+<p><span class="math display">\[\Rightarrow \int_\Omega
+\operatorname{div}\vec\Phi\,d\sigma = \int_{\partial\Omega}
+\vec\Phi\cdot\vec n\,d\ell\]</span></p>
+<p>This is good enough for us!</p>
+<p>How we can prove this / the more fundamental result:</p>
+<p>If we redefine <span class="math inline">\(\int_\Omega\)</span> to
+mean the generalized Perron integral (instead of the Lebesgue integral),
+then we have:</p>
+<p><span class="math display">\[\vec\Phi : U \to \mathbb{R}^2 \text{
+diff on } U \Rightarrow \operatorname{div}\vec\Phi \text{ is
+GP-integrable}\]</span></p>
+<p>on <span class="math inline">\(\Omega\)</span> and</p>
+<p><span class="math display">\[\int_\Omega
+\operatorname{div}\vec\Phi\,d\sigma = \int_{\partial\Omega}
+\vec\Phi\cdot\vec n\,d\ell\]</span></p>
+<p>The GP belongs to the family of the generalized Riemann integrals;
+cf</p>
+<blockquote>
+<p>Formalizing the Divergence Theorem and the Cauchy Integral Formula in
+Lean<br />
+Yury Kudryashov</p>
+</blockquote>
+<p>for the exact statement.</p>
+<p>Let’s provide a glimpse of how that works in 1D.</p>
+<p>We know that the div. theorem is a 2D generalisation of the
+fundamental theorem of calculus:</p>
+<p><span class="math inline">\(f : [a,b] \to \mathbb{R}\)</span> diff
+and <span class="math inline">\(f&#39;\)</span> integrable <em>[the
+words “<span class="math inline">\(f&#39;\)</span> integrable” are
+underlined in red]</em></p>
+<p><span class="math display">\[\Rightarrow \int_a^b f&#39;(t)\,dt =
+f(b) - f(a)\]</span></p>
+<p>Lebesgue integration does not guarantee that every derivative is
+integrable …. a shame!</p>
+<p>Here is the Henstock-Kurzweil gauge integral def:</p>
+<p>Gauge on <span class="math inline">\([a,b]\)</span>: fct <span
+class="math inline">\(\delta : [a,b] \to \mathbb{R}\)</span> st <span
+class="math inline">\(\forall t \in [a,b]\)</span>, <span
+class="math inline">\(\delta(t) &gt; 0\)</span>.</p>
+<p><span class="math inline">\(f : [a,b] \to \mathbb{R}\)</span> HK
+integrable with integral <span class="math inline">\(I\)</span></p>
+<p>if <span class="math inline">\(\forall \varepsilon &gt; 0\)</span>,
+there is a gauge <span class="math inline">\(\delta\)</span> on <span
+class="math inline">\([a,b]\)</span>, s.t. every pointed distribution
+<span class="math inline">\(a = x_0 \leq t_0 \leq x_1 \leq \cdots \leq
+x_n = b\)</span> subordinate to <span
+class="math inline">\(\delta\)</span>: <span
+class="math inline">\(\forall k\)</span>, <span
+class="math inline">\(x_{k+1} - x_k &lt; \delta(t_k)\)</span></p>
+<p>We have</p>
+<p><span class="math display">\[\left| \sum_{k=0}^{n-1} f(t_k)(x_{k+1} -
+x_k) - I \right| \leq \varepsilon\]</span></p>
+<p>Well, the “true” FTC works for the HK integral</p>
+<p><span class="math display">\[f : [a,b] \to \mathbb{R} \text{ diff}
+\Rightarrow f&#39; \text{ is HK integrable}\]</span></p>
+<p>and</p>
+<p><span class="math display">\[\int_a^b f&#39;(t)\,dt = f(b) -
+f(a).\]</span></p>
+<hr />
+<h2 id="transcribers-notes-2">Transcriber’s notes</h2>
+<ul>
+<li>The reference to Kudryashov’s paper is the only typed text in the
+note. Everything else is handwritten.</li>
+<li>“<span class="math inline">\(\forall \varepsilon &gt; 0\)</span>”:
+the <span class="math inline">\(0\)</span> is written so that it looks
+like an “a”.</li>
+<li>Corrected here, still present in the handwritten original: the sum
+was written with lower index <span class="math inline">\(i = 0\)</span>,
+no upper bound, and a summand indexed by <span
+class="math inline">\(k\)</span>. It now reads <span
+class="math inline">\(\sum_{k=0}^{n-1}\)</span>.</li>
+</ul>
+<h1 id="the-speedrun">The speedrun</h1>
+<p><em>Transcript of the handwritten note <code>the-speedrun.tldr</code>
+/ <code>the-speedrun.svg</code>. Descriptions of drawings are in square
+brackets.</em></p>
+<p>CHEAT!</p>
+<ul>
+<li>DEFINE HOLOMORPHIC AS CONTINUOUSLY DIFF. INSTEAD OF MERELY
+DIFF.</li>
+<li>PRO: YOU UNLOCK A SIMPLE PROOF OF THE CIRCULAR VERSION OF LOC.
+CAUCHY, THUS YOU GET THE POWER SERIES EXPANSION REALLY FAST</li>
+<li>CON: YOU PAY A SMALL, USELESS EXTRA TAX FOR ALL YOUR PROOF (THE NEED
+TO PROVE THAT <span class="math inline">\(f&#39;\)</span> IS
+CONTINUOUS).</li>
+</ul>
+<h2 id="the-proof">THE PROOF</h2>
+<p><em>[Diagram: a circle <span class="math inline">\(\gamma_r\)</span>
+of centre <span class="math inline">\(z\)</span> (marked with a cross)
+and radius <span class="math inline">\(r\)</span>, traversed
+counter-clockwise.]</em></p>
+<p><span class="math display">\[\int_{\gamma_r} f(w)\,dw =
+0\]</span></p>
+<p>def</p>
+<p><span class="math display">\[\phi(r) := \int_{\gamma_r}
+f(w)\,dw\]</span></p>
+<p>WE HAVE <span class="math inline">\(\phi(0) = 0\)</span> (and even
+continuity at <span class="math inline">\(0\)</span>). SINCE</p>
+<p><span class="math display">\[\phi(r) = \int_0^1 f(z + re^{i2\pi t})\,
+re^{i2\pi t}\,(i2\pi)\,dt\]</span></p>
+<p>AND <span class="math inline">\(f\)</span> IS <u><span
+class="math inline">\(\mathcal{C}^1\)</span></u>,</p>
+<p><span class="math display">\[\phi&#39;(r) = \int_0^1 \left( f&#39;(z
++ re^{i2\pi t})\, e^{i2\pi t}\, r + f(z + re^{i2\pi t}) \right) e^{i2\pi
+t}\,(i2\pi)\,dt\]</span></p>
+<p><span class="math display">\[= \frac{1}{r} \int_0^1 \left( f&#39;(z +
+re^{i2\pi t})\, re^{i2\pi t} + f(z + re^{i2\pi t}) \right) re^{i2\pi
+t}\,(i2\pi)\,dt\]</span></p>
+<p><span class="math display">\[= \frac{1}{r} \int_{\gamma_r} \left(
+f&#39;(w)\,(w - z) + f(w) \right) dw\]</span></p>
+<p>Note that <span class="math inline">\(f&#39;(w)(w - z) +
+f(w)\)</span> has <span class="math inline">\((w - z) f(w)\)</span> as a
+primitive.</p>
+<p>Hence the derivative of <span class="math inline">\(\phi\)</span> is
+<span class="math inline">\(= 0\)</span> at any (small) <span
+class="math inline">\(r &gt; 0\)</span>.</p>
+<p>Since <span class="math inline">\(\phi(0^+) = \phi(0) = 0\)</span>,
+that yields <span class="math inline">\(\phi(r) = 0\)</span>.</p>
+<hr />
+<h2 id="transcribers-notes-3">Transcriber’s notes</h2>
+<p>This transcript corrects the following slips, which remain in the
+handwritten original.</p>
+<ul>
+<li>In the first expression of <span
+class="math inline">\(\phi&#39;(r)\)</span>, the last factor read <span
+class="math inline">\((i\pi)\)</span>. It is now <span
+class="math inline">\((i2\pi)\)</span>, as in the next line.</li>
+<li>The original uses <span class="math inline">\(z\)</span> for both
+the centre of the circle and the integration variable. The integration
+variable is now <span class="math inline">\(w\)</span>, so the last
+integrand, written <span class="math inline">\(f&#39;(z)z +
+f(z)\)</span> in the original, is now <span
+class="math inline">\(f&#39;(w)(w - z) + f(w)\)</span>.</li>
+<li>The original reads “has <span class="math inline">\(f(z)\)</span>
+has a primitive”. It now reads “has <span class="math inline">\((w - z)
+f(w)\)</span> as a primitive”.</li>
+</ul>
+</body>
+</html>
